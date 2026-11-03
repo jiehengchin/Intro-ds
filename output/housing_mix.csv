@@ -1,0 +1,9 @@
+type,r_income,r_private_share,r_public_rental_share,r_subsidised_share,partial_income_given_private,partial_private_given_income,partial_income_given_public_rental,partial_public_rental_given_income,perm_p_private,perm_p_public_rental
+public,0.49,0.47,-0.42,-0.35,0.25,0.19,0.3,-0.13,0.0537,0.0763
+restricted,0.79,0.66,-0.56,-0.52,0.6,0.23,0.67,-0.01,0.0004,0.013
+private_estate,0.77,0.67,-0.57,-0.52,0.55,0.27,0.63,-0.06,0.001,0.0131
+bins_public_place,0.55,0.56,-0.57,-0.31,0.26,0.28,0.25,-0.31,0.0148,0.0141
+spots,0.53,0.49,-0.35,-0.5,0.29,0.19,0.43,0.05,0.0354,0.1607
+stations_stores,-0.1,-0.27,0.32,0.1,0.14,-0.29,0.19,0.35,0.2856,0.2022
+smart_bins,-0.67,-0.82,0.96,0.26,-0.21,-0.66,0.01,0.92,0.0003,0.0001
+gc,0.49,0.44,-0.29,-0.47,0.28,0.14,0.42,0.08,0.0627,0.2358
