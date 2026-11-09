@@ -40,7 +40,8 @@ Option 2 means **comparing two or more solutions using information other people 
 3. **Made it fair:** counted boxes **per 10,000 people**, so big and small districts can be compared.
 4. **Looked for patterns:** used correlation (*r*), a number from −1 to +1 that shows whether two things go up together.
 5. **Checked we weren't fooled:** re-ran every pattern 6 different ways, for example leaving out one district at a time, and with a chance test.
-6. **Asked "why?":** checked whether the patterns are really about money, or about how big a district is, how much countryside it has, and whether people live in public housing or private housing.
+6. **Asked "why?":** checked whether the patterns are really about money, or about how big a district is, how crowded it is (population density), how much countryside it has, and whether people live in public housing or private housing. To do this fairly we used a **"held fixed" check** (a partial correlation): take away the part of the pattern that is just about size or housing, and see how much of the money link is left.
+7. **Drew 9 charts** that the report and the poster both use, so they always match.
 
 ## What we found
 
@@ -51,7 +52,7 @@ Option 2 means **comparing two or more solutions using information other people 
   - C reaches public housing estates but is mostly for food waste.
 - **RQ3:** At first it looked like richer districts get more boxes. But **money isn't really the reason**:
   - **Big districts get fewer boxes per person.** Each district gets about the same number of GREEN@COMMUNITY points (17–39), so busy places like Yuen Long and Sha Tin get the fewest per person.
-  - **Countryside districts have lots of park and beach bins.** Islands and North have many, but few people.
+  - **Countryside districts have lots of park and beach bins.** Islands and North have many, but few people. Crowded city districts have fewer bins per person, so crowdedness (density) explains a bit of the public-place bins, but nothing for GREEN@COMMUNITY, smart bins or private-building bins. Size explains more than crowdedness almost everywhere.
   - **Wan Chai looks rich in boxes** because its bins are in parks, on hiking roads and at offices, and only 163,000 people live there.
   - **Smart bins go where public housing is** (the match is almost perfect, r = +0.96), not where poor people are.
   - **Private-building bins follow money more than private housing.** Yau Tsim Mong is almost all private housing but has few such bins, probably because many of its buildings are old blocks with no management company to run recycling (we couldn't check this building by building). Richer districts have more managed estates with their own bins.
@@ -62,6 +63,14 @@ Option 2 means **comparing two or more solutions using information other people 
 - **RQ4:** We **can't tell yet**. The rubbish numbers are too rough.
 - **Background (Chart 4):** Hong Kong recycles about 48% of business rubbish, but only 22% of home rubbish, and the home number is rising very slowly. That's why we looked at boxes near homes, although we couldn't prove that more boxes raise recycling (see RQ4).
 
+## How to read the numbers in the charts
+
+- **Coverage:** how many public boxes there are for every 10,000 people (for B: 491 boxes ÷ about 7.5 million people × 10,000 ≈ 0.65).
+- **Evenness:** how similar the districts are to each other. We work out the *spread* of the 18 district numbers (standard deviation) and divide it by their average (coefficient of variation, CV). **Low CV = districts get similar amounts; high CV = some districts get much more than others.** Example: 4, 5, 6 has CV 0.2 (even); 1, 5, 9 has CV 0.8 (uneven), although both average 5. For B the CV is 0.39 ÷ 0.77 = 0.50. It does not say whether coverage is *good*, only whether it is *similar*.
+- **Materials accepted:** how many kinds of rubbish one box takes (for example "Metals, Paper, Plastics" counts as 3), averaged over the boxes. A takes about 2.6, B about 8.4, C about 1.2 (almost only food waste).
+- **"Held fixed" (Chart 8):** the pale bar is the raw money link; the solid bar is what is left after taking away the size (or public-housing) effect. A bar near zero means money adds little once size or housing is counted.
+- **Chart 3 vs Chart 7:** Chart 3 shows *all* boxes, including private-estate ones, against income. Chart 7 shows only the *public* boxes and what each follows: A follows crowdedness, B follows district size, C follows public housing. Private-estate boxes follow income instead.
+
 ## How it all links together
 
 ```
@@ -70,7 +79,7 @@ Problem: homes recycle too little, and boxes may not be fair
    → Method: per 10,000 people, split by type A/B/C, correlation, checks
    → Answers: RQ1 (uneven, mostly street bins), RQ2 (each solution good at one thing),
               RQ3 (mostly district size and housing type, not money), RQ4 (not enough data)
-   → Why? district size, countryside, housing type → shows which gaps are unfair
+   → Why? district size, crowdedness, countryside, housing type → shows which gaps are unfair
    → Ideas: count boxes by type, give big districts more points (~59 street booths),
             put recycling shops near old unmanaged buildings, publish more data
 ```
@@ -87,16 +96,20 @@ Problem: homes recycle too little, and boxes may not be fair
 | `GE1356 Project Draft v2.md` | The plan: sources (§3.2), method, all numbers, Q&A prep, checklist. Sections 5–9 match the report. |
 | `GE1356 Report Draft.md` | The report draft. §1, §2 and §8 are WRITING GUIDE boxes for the students to write in their own words; do not fill them with prose. |
 | `GE1356 Project Draft.md` | Original draft (history only; superseded). |
+| `QA_Prep.md` | Draft answers for the 2-minute Q&A, with the definitions behind coverage, evenness and materials accepted. Students must rewrite in their own words. |
+| `DS_Poster_Presentation_Student_Notes.md` | Course notes on the poster presentation (3 min talk, 2 min Q&A). |
 | `data/` | **Raw downloads only. Never modify or write here.** `data/refs/` holds the source PDFs and HTML. |
-| `output/` | Everything derived: `district_summary_2025.csv`, `solutions_comparison.csv`, `robustness_by_type.csv`, `explanations.csv` and `housing_mix.csv` (size, land area, public-rental and private housing shares, with partial correlations), `charts/chart1–5*.png`. The `district_summary_2024*.csv` files are old and superseded. |
+| `output/` | Everything derived: `district_summary_2025.csv`, `solutions_comparison.csv`, `robustness_by_type.csv`, `explanations.csv` (size, land area, population density with partial correlations) and `housing_mix.csv` (public-rental and private housing shares, with partial correlations), `charts/chart1–9*.png`. The `district_summary_2024*.csv` files are old and superseded. |
+| `GroupXX_Poster.tex` | A4 poster (`latexmk -pdf GroupXX_Poster.tex`, one page); uses `output/charts/chart5–9`. Placeholders for group number, names and responsibilities. It does not mention Bonferroni; say "reliable" and "permutation test" instead. Rename to the real group number before submission. |
 | `build_district_table.py` | Builds all CSVs in `output/` from `data/` and prints every statistic used in the plan and report. |
-| `make_charts.py` | Draws the 5 charts from `output/` CSVs. |
+| `make_charts.py` | Draws the 9 charts from `output/` CSVs and `data/`. The report and `GroupXX_Poster.tex` use these same files: change a chart here once and both update. |
 
 **Run (from the project root)**
 
 ```bash
 python3 -I build_district_table.py   # stdlib only; self-checks totals (8,856 points, 5,301 public)
 python3 make_charts.py               # needs matplotlib, which is only visible WITHOUT -I on this machine
+latexmk -pdf GroupXX_Poster.tex      # A4 poster, needs the charts above
 ```
 
 The chance test uses a fixed seed (1), so the outputs are reproducible.
@@ -108,7 +121,7 @@ The chance test uses a fixed seed (1), so the outputs are reproducible.
 - Definitions: "public" means `accessibilty_notes == "Note: For public use"` (sic). A = "Recycling Bins at Public Place"; B = "Recycling Stations/Recycling Stores" + "Recycling Spots"; C = "Smart Bin" (public only). Rows with a blank `legend` are excluded.
 - Use 2025 population as the main denominator (matches the Sep 2025 snapshot); 2024 is a check only.
 - Language: say "association", not "cause". A result is called "reliable" only if it passes Bonferroni (p < 0.0025) **and** its sign is stable across all checks. Only 3 of 20 tests qualify: restricted vs income (+0.79), private-estate vs income (+0.77) and smart bins vs income (−0.67). Income patterns are mostly district size and housing type (see `explanations.csv`). Don't say "rich districts get more" without that caveat.
-- Chart colours use a validated palette in fixed order. In Charts 1 and 5, solution A is blue, B is orange and C is aqua (Chart 1 splits B into Spots in orange and Stations/Stores in yellow). Chart 2 uses the same blue (A) and aqua (C, smart bins). Chart 3 uses dark grey (public) and light grey (restricted). **Chart 4 is different:** it plots three recovery rates (all MSW, domestic, and commercial and industrial waste), not A/B/C, so it highlights domestic waste in violet and greys the other two. Never reuse the A/B/C colours for other categories. Re-run the palette validator if you change any colours.
+- Chart colours use a validated palette in fixed order. In Charts 1 and 5, solution A is blue, B is orange and C is aqua (Chart 1 splits B into Spots in orange and Stations/Stores in yellow). Chart 2 uses the same blue (A) and aqua (C, smart bins). Chart 3 is two scatter plots (income vs public points, income vs restricted points) in dark grey (public) and mid grey (restricted). Chart 5 is a scorecard with A, B and C in their colours (darker shade = better on that row, grey = not published). Chart 6 uses blue for all public points and violet for without public-place bins. Chart 7 has three panels in A blue, B orange and C aqua. Chart 8 uses the A/B/C colours plus grey for restricted points (pale = raw, solid = held fixed). Chart 9 uses violet for the reliable tests and grey for the rest. **Chart 4 is different:** it plots three recovery rates (all MSW, domestic, and commercial and industrial waste), not A/B/C, so it highlights domestic waste in violet and greys the other two. Never reuse the A/B/C colours for other categories. Re-run the palette validator if you change any colours.
 - AI policy: the core intellectual work must be the students'. Help them understand and check the work; don't write their Abstract, Introduction or Conclusion prose.
 
-**Open items:** the students' own writing (§1, §2, §8), member responsibilities, the poster, and rehearsing the Q&A.
+**Open items:** the students' own writing (§1, §2, §8), member responsibilities (§9 and poster), group number and names on the poster, putting the charts into the report in reading order (they are currently numbered 1, 6, 2, 3, 4, 9, 7, 8, 5 in the text), checking that chart text is legible when the poster is printed, and rehearsing the Q&A.

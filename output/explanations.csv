@@ -1,8 +1,8 @@
-type,r_income,r_prh_share,r_log_pop,r_one_over_pop,partial_income_given_logpop,partial_logpop_given_income,partial_income_given_prh,partial_prh_given_income,raw_count_r_pop,raw_count_r_area
-public,0.49,-0.35,-0.81,0.87,0.11,-0.75,0.37,0.04,0.71,0.56
-restricted,0.79,-0.61,-0.56,0.58,0.69,-0.26,0.62,-0.04,0.06,-0.33
-bins_public_place,0.55,-0.5,-0.8,0.84,0.23,-0.71,0.31,-0.14,0.22,0.74
-spots,0.53,-0.31,-0.89,0.94,0.13,-0.85,0.48,0.17,-0.15,-0.07
-stations_stores,-0.1,0.37,-0.36,0.39,-0.37,-0.5,0.31,0.46,0.69,-0.09
-smart_bins,-0.67,0.94,0.47,-0.43,-0.56,0.17,0.2,0.89,0.84,-0.11
-gc,0.49,-0.25,-0.87,0.92,0.04,-0.83,0.47,0.21,0.16,-0.09
+type,r_income,r_prh_share,r_log_pop,r_one_over_pop,partial_income_given_logpop,partial_logpop_given_income,partial_income_given_prh,partial_prh_given_income,r_pop_density,partial_density_given_logpop,raw_count_r_pop,raw_count_r_area
+public,0.49,-0.35,-0.81,0.87,0.11,-0.75,0.37,0.04,-0.48,-0.5,0.71,0.56
+restricted,0.79,-0.61,-0.56,0.58,0.69,-0.26,0.62,-0.04,-0.07,0.08,0.06,-0.33
+bins_public_place,0.55,-0.5,-0.8,0.84,0.23,-0.71,0.31,-0.14,-0.53,-0.57,0.22,0.74
+spots,0.53,-0.31,-0.89,0.94,0.13,-0.85,0.48,0.17,-0.21,0.01,-0.15,-0.07
+stations_stores,-0.1,0.37,-0.36,0.39,-0.37,-0.5,0.31,0.46,-0.01,0.09,0.69,-0.09
+smart_bins,-0.67,0.94,0.47,-0.43,-0.56,0.17,0.2,0.89,0.23,0.13,0.84,-0.11
+gc,0.49,-0.25,-0.87,0.92,0.04,-0.83,0.47,0.21,-0.2,0.03,0.16,-0.09

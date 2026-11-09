@@ -220,6 +220,8 @@ for k in ["public", "restricted", "bins_public_place", "spots", "stations_stores
                  "partial_logpop_given_income": round(partial(v, logpop, inc_v), 2),
                  "partial_income_given_prh": round(partial(v, inc_v, prh), 2),
                  "partial_prh_given_income": round(partial(v, prh, inc_v), 2),
+                 "r_pop_density": round(r(v, dens_v), 2),
+                 "partial_density_given_logpop": round(partial(v, dens_v, logpop), 2),
                  "raw_count_r_pop": round(r(raw, [pop[d] for d in districts]), 2),
                  "raw_count_r_area": round(r(raw, areas), 2)})
 with open("output/explanations.csv", "w", newline="") as f:

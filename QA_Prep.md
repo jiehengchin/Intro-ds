@@ -57,6 +57,14 @@ District counts are what the data supports. Walking distance would be better (Zh
 **Ecological fallacy?**
 A district-level link between income and points does not mean richer *people* recycle more. We claim only district-level associations.
 
+**What do "coverage", "evenness" and "materials accepted" in Chart 5 mean?**
+- Coverage: public points ÷ Hong Kong population × 10,000 (B: 491 points → 0.65 per 10,000). Ignores opening hours and capacity.
+- Evenness: coefficient of variation = SD ÷ mean of the 18 district densities (B: 0.39 ÷ 0.77 = 0.50). Lower = districts are more similar. It says nothing about whether coverage is good, and treats districts equally whatever their size. A, B, C are all 0.43–0.52, so all are unevenly spread to a similar degree.
+- Materials accepted: number of material types the EPD lists per point, averaged (A 2.6, B 8.4, C 1.2). It measures range, not volume.
+
+**Why does C have the lowest CV but the highest highest-÷-lowest ratio?**
+The CV uses all 18 districts; the ratio uses only the two extremes. They answer different questions, so we report both.
+
 ## 4. Validation  [Name: ___]  (expect the hardest questions here)
 
 **How did you validate? There's no train/test.**
@@ -75,6 +83,9 @@ Others, including "pro-rich" public points, are fragile: all-public drops from +
 
 **Why Bonferroni? Isn't it too strict?**
 We ran 20 tests, so some would look significant by chance. It is conservative, so we call the rest "moderate and fragile patterns", not disproven.
+
+**Could population density explain the differences instead of size?**
+Partly, for public-place bins only. Density keeps its own link with public-place bins (r = −0.53; −0.57 with size held fixed), because dense urban districts have little countryside, so density is a proxy for land area (bin counts follow land area, +0.74). For GREEN@COMMUNITY, Spots, smart bins and restricted points, density adds nothing once size is held fixed (+0.01 to +0.13). Size is the stronger explanation almost everywhere (r with log population −0.8 to −0.9 for A, B and Spots). Density and size are only weakly related (r = +0.24), and with 18 districts we can't fully separate them (raw density correlations are in Table 3; the partial ones are in Appendix B, explanations.csv). If asked whether we controlled for density: holding it fixed barely changes the income link (e.g. GREEN@COMMUNITY +0.49 → +0.46), while holding size fixed nearly removes it (→ +0.04), so density does not explain the income pattern away. This check is in our working but not in the report.
 
 **Are your "why" explanations proven?**
 - Smart bins follow public rental housing: r = +0.96, income link falls to +0.01 once held fixed. Strong.

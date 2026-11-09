@@ -145,7 +145,7 @@ This gives "points per 10,000 residents", which is calculated separately for pub
 5. Test whether access relates to outcomes (RQ4) in two ways: against domestic waste landfilled per person (D3, Plate 2.6), and against GREEN@COMMUNITY recyclables collected per resident (Chan et al., 2024, Table 2).
 6. Check the robustness of every correlation (Section 5.5): Spearman rank correlation, leave-one-out, excluding Wan Chai, 2024 population, an alternative income measure, and a permutation p-value with a correction for the number of tests.
 7. Compare solutions A, B and C on common units (Section 5.7). From the dataset: coverage per 10,000 residents, unevenness across districts (coefficient of variation: standard deviation ÷ mean of the 18 district densities; and highest ÷ lowest district), equity (r with income), materials accepted per point, and opening hours. From the literature: tonnes collected per year, per point and per resident, and HK$ per tonne, after converting tonnes per day into tonnes per year and total budgets into cost per tonne.
-8. Look for explanations (Section 5.5): correlate each density with **district population**, **land area**, and the **public-rental** and **private-housing** shares of residents (D4), and use **partial correlations**, the link between two things that remains after holding a third fixed, to see whether income still matters once size or housing type is taken into account.
+8. Look for explanations (Section 5.5): correlate each density with **district population**, **population density**, **land area**, and the **public-rental** and **private-housing** shares of residents (D4), and use **partial correlations**, the link between two things that remains after holding a third fixed, to see whether income still matters once size or housing type is taken into account.
 
 The calculations were done in a short Python script (`build_district_table.py`, Appendix A), which also checks its totals against the raw counts and writes every figure in Tables 3–6. The descriptive results can be reproduced in Excel with COUNTIFS, division and CORREL.
 
@@ -172,7 +172,9 @@ Public-use points per 10,000 residents vary **3.2-fold** across the 18 districts
 
 Chart 1 shows that this ranking is driven almost entirely by **public-place bins** (blue), which make up 68% of all public points. In Wan Chai they account for 12.3 of its 15.2 points per 10,000 residents (81%). Their addresses suggest that some are not near homes, for example Revenue Tower and Immigration Tower (government offices) and country-park roads such as Tai Tam Reservoir Road and Black's Link. Islands ranks second for a similar reason: many of its bins are at village refuse points, beaches and country parks.
 
-If public-place bins are removed, the range shrinks to between **1.5 (Sai Kung) and 3.6 (Islands)** points per 10,000. Kwai Tsing, Kwun Tong and Wong Tai Sin then rise into the top half, mainly because they have many smart bins. **So "which district has the best access" depends on which kind of point is counted.** District size also matters: the most populous districts have the lowest public density (r = −0.81 with log population), consistent with facilities not being added in proportion to residents (Section 5.5).
+If public-place bins are removed, the range shrinks to between **1.5 (Sai Kung) and 3.6 (Islands)** points per 10,000. Kwai Tsing, Kwun Tong and Wong Tai Sin then rise into the top half, mainly because they have many smart bins. **So "which district has the best access" depends on which kind of point is counted** (Chart 6). District size also matters: the most populous districts have the lowest public density (r = −0.81 with log population), consistent with facilities not being added in proportion to residents (Section 5.5).
+
+*[Insert Chart 6: `output/charts/chart6_rank_shift.png`. Each district's public points per 10,000 residents with (blue) and without (violet) public-place bins, so the grey bar is the share that comes from public-place bins.]*
 
 ### 5.2 Do different point types favour different districts? (RQ3)
 
@@ -201,9 +203,9 @@ This matches the finding of Guo et al. (2018) for 28 other public services in Ho
 
 ### 5.3 Public versus restricted points
 
-*[Insert Chart 3: `output/charts/chart3_public_vs_restricted.png`]*
+*[Insert Chart 3: `output/charts/chart3_public_vs_restricted.png`. Two scatter plots on the same axes, each dot a district: public-use points per 10,000 residents against median household income (left, r = +0.49) and restricted points against income (right, r = +0.79), with a dashed trend line.]*
 
-When restricted points are added (Chart 3), the gap between districts widens sharply. Restricted points per 10,000 residents range from **2.4 in Kwai Tsing to 21.3 in Central and Western**, and are closely associated with median household income (**r = +0.79**). For all points combined, the correlation is +0.83. Richer districts therefore *have* many more restricted points, mostly bins in private housing estates that only their residents can use.
+When restricted points are added (Chart 3), the gap between districts widens sharply, and the dots follow income much more closely than public points do (right panel against left). Restricted points per 10,000 residents range from **2.4 in Kwai Tsing to 21.3 in Central and Western**, and are closely associated with median household income (**r = +0.79**). For all points combined, the correlation is +0.83. Richer districts therefore *have* many more restricted points, mostly bins in private housing estates that only their residents can use.
 
 This is a district-level association, and it does not show that wealthier households recycle more. Section 5.5 shows that restricted points follow private housing, but that income still matters after allowing for it, probably because higher-income districts have more managed private estates that run their own recycling. It does show that residents of districts with little private housing depend more heavily on the public network.
 
@@ -240,6 +242,8 @@ The **direction** of every result in Table 4 holds in all checks, but only three
 
 The same checks on population density gave a stable negative link for public points (−0.48; −0.56 without Wan Chai; *p* = 0.037), which also does not pass the correction. Income and population density are themselves correlated (*r* = −0.38), so with 18 districts we cannot separate their effects. Overall, **this analysis is exploratory.**
 
+*[Insert Chart 9: `output/charts/chart9_robustness.png`]*
+
 **What else explains the patterns?** A correlation with income does not mean income is the reason. We tested other district features: population size, land area, and the share of residents in public rental housing and in private housing (D4, 2021 Census). Income is strongly linked to housing mix (*r* = +0.72 with private-housing share, −0.71 with public-rental share; C&SD, 2022, 2026b), and richer districts in our data also tend to be smaller (*r* = −0.54 with log population), so income can stand in for any of these.
 
 **Table 5. What best explains each pattern (n = 18; "…fixed" is a partial correlation: the link with income that remains after holding that feature constant)**
@@ -247,7 +251,7 @@ The same checks on population density gave a stable negative link for public poi
 | Point density per 10,000 | r with income | …size fixed | r with public-rental share | …public-rental fixed | r with private share | …private fixed | Best explanation |
 |---|---|---|---|---|---|---|---|
 | All public points | +0.49 | +0.11 | −0.42 | +0.30 | +0.47 | +0.25 | District size (r = +0.87 with 1 ÷ population) |
-| Public-place bins (A) | +0.55 | +0.23 | −0.57 | +0.25 | +0.56 | +0.26 | District size; bin counts follow land area (+0.74), not population (+0.22) |
+| Public-place bins (A) | +0.55 | +0.23 | −0.57 | +0.25 | +0.56 | +0.26 | District size and land area; bin counts follow land area (+0.74), not population (+0.22); density is a proxy for countryside |
 | Recycling Spots | +0.53 | +0.13 | −0.35 | +0.43 | +0.49 | +0.29 | District size (+0.94 with 1 ÷ population) |
 | GREEN@COMMUNITY (B) | +0.49 | +0.04 | −0.29 | +0.42 | +0.44 | +0.28 | District size (+0.92 with 1 ÷ population) |
 | Public smart bins (C) | −0.67 | −0.56 | **+0.96** | +0.01 | −0.82 | −0.21 | **Public rental housing** |
@@ -255,8 +259,10 @@ The same checks on population density gave a stable negative link for public poi
 
 *Source: our calculations from D1, D2 and D4 (Appendix B).*
 
+*[Insert Chart 7: `output/charts/chart7_drivers.png`. Three scatter plots, one driver per public solution: (A) public-place bins against population density, a moderate link that stands in for countryside (r = −0.53); (B) GREEN@COMMUNITY coverage against district population; (C) smart bins against public-rental share (r = +0.96). Public points only; Chart 3 shows the restricted private-estate bins, which follow income instead.]*
+
 - **District size explains coverage.** Each district has a similar number of GREEN@COMMUNITY points (17–39), so per-resident coverage is lowest where most people live: Yuen Long, Sha Tin and Tuen Mun. Once size is held fixed, the link with income almost disappears (+0.04).
-- **Land area and countryside explain public-place bins.** Their counts follow land area, not population, because many sit in country parks, villages and beaches (Islands, North, Tai Po). Wan Chai looks over-served because its bins are in parks, on hillside roads and at offices, but we divide by only 163,000 residents.
+- **Land area and countryside explain public-place bins.** Their counts follow land area, not population, because many sit in country parks, villages and beaches (Islands, North, Tai Po). Wan Chai looks over-served because its bins are in parks, on hillside roads and at offices, but we divide by only 163,000 residents. Population density tells a similar story: it keeps its own link with public-place bins (−0.57 with size held fixed; Appendix B, `explanations.csv`), because dense urban districts have little country park, village or beach land, so density partly stands in for how much countryside a district has. For GREEN@COMMUNITY, Spots, smart bins and restricted points, density adds nothing once size is held fixed (+0.01 to +0.13), and district size is a stronger explanation than density everywhere (r with log population −0.8 to −0.9 for A, B and Spots, against −0.2 to −0.5 with density).
 - **Public rental housing explains smart bins.** Smart-bin density follows the public-rental share almost exactly (*r* = +0.96, permutation *p* ≈ 0.0001), and the link with income disappears once that share is held fixed (+0.01). Kwun Tong (58% of residents in public rental housing), Kwai Tsing (56%) and Wong Tai Sin (49%) lead; Central and Western (4%), Wan Chai (4%) and Yau Tsim Mong (3%) trail (C&SD, 2022). This matches the policy of placing smart bins in public estates.
 - **Restricted points follow income more than private housing.** They are denser where more people live in private housing (+0.66), but income matters more: holding private share fixed, income still gives +0.60, while holding income fixed, private share gives only +0.23. For example, Yau Tsim Mong is 89% private housing but has only 4.1 restricted points per 10,000, against 21.3 in Central and Western (95% private; housing shares from C&SD, 2022). A likely reason, which we did not test, is that much private housing in older districts is in tenement buildings, often without property management, which rarely run their own recycling. Higher-income managed estates do. Yau (2012) similarly found more recycling in higher-income private estates.
 
@@ -283,7 +289,7 @@ These are associations among 18 districts. Housing shares are from 2021, against
 
 ### 5.7 Comparing the three solutions (RQ2)
 
-*[Insert Chart 5: `output/charts/chart5_solutions_compared.png`]*
+*[Insert Chart 5: `output/charts/chart5_solutions_compared.png`. A scorecard of Table 6: one row per measure, darker = better on that measure, grey = no published figure.]*
 
 **Table 6. Three recycling solutions on common measures**
 
@@ -300,6 +306,12 @@ These are associations among 18 districts. Housing shares are from 2021, against
 | Tonnes per point per year | Not published | ≤ about 97 (÷ 491 public points, Sep 2025) | ≤ 33 (÷ 605 bins, May 2024) | Derived (script) |
 | Kg per resident per year (all HK residents) | Not published | 6.3 | ≤ 2.7 | Derived (script) |
 | Operating cost (HK$ per tonne) | Not published | About 10,100 (2025-26) | Not published | LCQ2 |
+
+**How to read the three dataset measures in Table 6 and Chart 5.**
+
+- **Coverage** = the solution's public points ÷ Hong Kong's total population × 10,000. For example, B has 491 public points, so 491 ÷ 7,497,900 × 10,000 ≈ 0.65 points per 10,000 residents. It is a territory-wide figure; Table 7 shows the district version. Higher means more points per person, but it ignores opening hours and capacity.
+- **Evenness** = the coefficient of variation (CV) of the 18 district densities: standard deviation ÷ mean. For B, the 18 district values (points per 10,000) range from 0.32 (Yuen Long) to 1.72 (Wan Chai); their mean is 0.77 and standard deviation 0.39, so CV = 0.39 ÷ 0.77 = 0.50. It shows how much districts differ from each other as a share of the average: **0 would mean every district gets the same coverage, and a lower CV means a more even spread**. Dividing by the mean makes solutions with very different totals comparable. It says nothing about whether coverage is good, only how similar it is across districts, and it treats every district equally whatever its population. Highest ÷ lowest district (Table 6) uses only the two extremes, so the two measures can rank solutions differently (C has the lowest CV but the highest ratio).
+- **Materials accepted** = the number of material types the EPD lists for a point (for example "Metals, Paper, Plastics" counts as 3), averaged over the solution's public points. It measures **range**: how many kinds of waste a resident can drop off at one stop. A (2.6) accepts mostly paper, metals and plastics; B (8.4) also takes glass bottles, beverage cartons, rechargeable batteries, fluorescent lamps and electrical equipment at almost every site; C (1.2) is almost only food waste (962 of its 1,073 points). It counts types, not volumes or how easy they are to use, and the EPD's list is what the operator says it accepts, not what we observed.
 
 All three are spread unevenly across districts to a similar degree (coefficient of variation 0.43–0.52). **No solution is best on every measure; they complement each other.**
 

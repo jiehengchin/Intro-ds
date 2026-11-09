@@ -177,7 +177,7 @@ Correlation with median household income and population density, per 10k residen
 
 **Reading:** the "pro-rich" pattern in all public points (+0.49) comes from public-place bins and Spots. Stations/Stores show no pattern (consistent with being spread across districts, as policy intends). The newer food-waste smart bins go the other way (−0.67) and are concentrated in public-housing estates. Different types tilt in opposite directions, matching Guo et al. (2018): the conclusion depends on what you count. Caution: the public-place-bin correlation (+0.55) is pulled up by Wan Chai and Central and Western, where many bins serve workers and visitors and the resident denominator is small. **See 5.5: most of these income links are really district size (A, Spots, B) and public rental housing (smart bins, +0.96).**
 
-### 5.3 Chart 3: Stacked Bar, Public vs Restricted Points per 10,000, by District — RQ3
+### 5.3 Chart 3: Two Scatter Plots, Public and Restricted Points per 10,000 vs Median Household Income — RQ3
 - Restricted (mostly private-estate) density tracks income strongly (r = +0.79 ✅). All points per 10k vs income: r = +0.83 ✅. Central and Western has 21.3 restricted points per 10k; Kwai Tsing has 2.4.
 - Reading: richer districts **have** more restricted points, mostly in private housing estates that only their residents can use. This is an association at district level; it may reflect how much private housing a district has rather than income itself (ecological fallacy, 4.5).
 
