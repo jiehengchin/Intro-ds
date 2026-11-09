@@ -185,7 +185,7 @@ Correlation with median household income and population density, per 10k residen
 - MSW recovery: 28%, 31%, 32%, 33%, 34% (2020–2024). Domestic: 19%, 20%, 20%, 21%, 22%. C&I: 40%, 43%, 45%, 46%, 48%. ✅ (checked by eye against Plate 3.2, printed p. 23: green = MSW, blue = domestic, orange = C&I).
 - Reading: domestic recovery (the part household collection points affect) is less than half of C&I and rising only about 0.75 points a year (19% → 22% over 4 years). At this rate the 2035 target of about 55% overall is far off.
 
-### 5.5 Evaluation (robustness checks; poster "Evaluation" box)
+### 5.5 Evaluation (robustness checks; poster "How far to trust it" card)
 
 Mirrors report 5.5 / Table 4 (full results: `output/robustness_by_type.csv`). Main correlations with income:
 
@@ -327,5 +327,5 @@ Linked directly to the findings. Each is a proposal, with its assumption stated.
 - [ ] Delete the report's draft-status box, the three WRITING GUIDE boxes and the *[Insert Chart …]* placeholders
 - [x] All ✅ numbers re-run on 2025 population
 - [ ] No [TODO] or [VERIFY] left
-- [ ] Poster has: title, group number, names and IDs, course, problem and objectives, data sources, method, results charts, evaluation (5.5), limitations, conclusion and impact, references, responsibilities
+- [ ] Poster has: title, group number, names and IDs, course, problem and objectives, data sources, method, results charts, evaluation (5.5), limitations, conclusion and impact, responsibilities, and a reference line (the full reference list was dropped from the poster for space; check with the instructor if this is acceptable)
 - [ ] Files named `GroupXX_Report.pdf` and `GroupXX_Poster.pdf`

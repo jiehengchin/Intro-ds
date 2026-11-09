@@ -145,7 +145,7 @@ rows5 = [("Coverage", "public points per 10,000 residents", [f"{x:.2f}" for x in
          ("Who it reaches", "", ["Parks, offices,\ncountryside", "Thinnest in the\nbiggest districts", "Public rental\nestates"], None, True),
          ("Tonnes collected a year", "", ["Not published", "47,500", "up to 20,000\n(food waste)"], None, True),
          ("Cost per tonne", "", ["Not published", "HK$10,100", "Not published"], None, True)]
-fig, ax = plt.subplots(figsize=(11, 6.6))
+fig, ax = plt.subplots(figsize=(11, 4.7))
 ax.axis("off"); ax.set_xlim(0, 1); ax.set_ylim(len(rows5) + 1.1, -0.1)
 X0, W = 0.27, 0.243
 names5 = ["A. Public-place bins", "B. GREEN@COMMUNITY", "C. Smart bins"]
@@ -184,7 +184,7 @@ for t in T:
 
 # ---- Chart 6: dot plot: each district with and without public-place bins ----
 Sd = sorted(T, key=lambda t: v(t, "public_per10k"))
-fig, ax = plt.subplots(figsize=(8.5, 7.0))
+fig, ax = plt.subplots(figsize=(8.5, 6.2))
 for i, t in enumerate(Sd):
     hi, lo = v(t, "public_per10k"), t["no_bins"]
     ax.plot([lo, hi], [i, i], color="#cfcec9", linewidth=3, zorder=1, solid_capstyle="round")
@@ -208,7 +208,7 @@ ckey = cen[4]
 cnum = lambda x: float(x) if x.replace(".", "", 1).isdigit() else 0.0
 prh = {r_[2].strip(): cnum(r_[ckey.index("pop_pub")]) / cnum(r_[ckey.index("t_pop")]) for r_ in cen[5:] if r_[2].strip() in TD}
 assert len(prh) == 18
-fig, axes = plt.subplots(1, 3, figsize=(14, 4.8))
+fig, axes = plt.subplots(1, 3, figsize=(14, 4.3))
 # A: public-place bins vs population density (a stand-in for how much countryside a district has)
 x = [v(TD[d], "pop_density_2025") / 1000 for d in D]; y = [v(TD[d], "bins_public_place_per10k") for d in D]
 axes[0].scatter(x, y, s=70, color=C[0], edgecolor=SURFACE, zorder=3)

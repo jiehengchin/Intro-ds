@@ -41,7 +41,7 @@ Option 2 means **comparing two or more solutions using information other people 
 4. **Looked for patterns:** used correlation (*r*), a number from −1 to +1 that shows whether two things go up together.
 5. **Checked we weren't fooled:** re-ran every pattern 6 different ways, for example leaving out one district at a time, and with a chance test.
 6. **Asked "why?":** checked whether the patterns are really about money, or about how big a district is, how crowded it is (population density), how much countryside it has, and whether people live in public housing or private housing. To do this fairly we used a **"held fixed" check** (a partial correlation): take away the part of the pattern that is just about size or housing, and see how much of the money link is left.
-7. **Drew 9 charts** that the report and the poster both use, so they always match.
+7. **Drew 9 charts** that the report and the poster both use, so they always match, and made a **one-page A4 poster** with the three most important ones (Charts 5, 6 and 7).
 
 ## What we found
 
@@ -100,16 +100,17 @@ Problem: homes recycle too little, and boxes may not be fair
 | `DS_Poster_Presentation_Student_Notes.md` | Course notes on the poster presentation (3 min talk, 2 min Q&A). |
 | `data/` | **Raw downloads only. Never modify or write here.** `data/refs/` holds the source PDFs and HTML. |
 | `output/` | Everything derived: `district_summary_2025.csv`, `solutions_comparison.csv`, `robustness_by_type.csv`, `explanations.csv` (size, land area, population density with partial correlations) and `housing_mix.csv` (public-rental and private housing shares, with partial correlations), `charts/chart1–9*.png`. The `district_summary_2024*.csv` files are old and superseded. |
-| `GroupXX_Poster.tex` | A4 poster (`latexmk -pdf GroupXX_Poster.tex`, one page); uses `output/charts/chart5–9`. Placeholders for group number, names and responsibilities. It does not mention Bonferroni; say "reliable" and "permutation test" instead. Rename to the real group number before submission. |
+| `GroupXX_Poster.html` | One-page A4 poster, designed in HTML/CSS and printed to `GroupXX_Poster.pdf` with Chrome (command below). Layout: header, four key numbers, problem and questions, data and method, Chart 6, Chart 7, Chart 5, "how far to trust it" (evaluation and limitations), recommendations, responsibilities. Charts 8 and 9 and the reference list are left off the poster to avoid overflow (Chart 8's numbers appear in the Chart 7 callout). It does not mention Bonferroni; say "reliable" and "permutation test" instead. Placeholders for group number, names and responsibilities. Rename both files to the real group number before submission. |
 | `build_district_table.py` | Builds all CSVs in `output/` from `data/` and prints every statistic used in the plan and report. |
-| `make_charts.py` | Draws the 9 charts from `output/` CSVs and `data/`. The report and `GroupXX_Poster.tex` use these same files: change a chart here once and both update. |
+| `make_charts.py` | Draws the 9 charts from `output/` CSVs and `data/`. The report and `GroupXX_Poster.html` use these same files: change a chart here once and both update. |
 
 **Run (from the project root)**
 
 ```bash
 python3 -I build_district_table.py   # stdlib only; self-checks totals (8,856 points, 5,301 public)
 python3 make_charts.py               # needs matplotlib, which is only visible WITHOUT -I on this machine
-latexmk -pdf GroupXX_Poster.tex      # A4 poster, needs the charts above
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer \
+  --print-to-pdf="$PWD/GroupXX_Poster.pdf" "file://$PWD/GroupXX_Poster.html"   # A4 poster, needs the charts above
 ```
 
 The chance test uses a fixed seed (1), so the outputs are reproducible.
@@ -124,4 +125,4 @@ The chance test uses a fixed seed (1), so the outputs are reproducible.
 - Chart colours use a validated palette in fixed order. In Charts 1 and 5, solution A is blue, B is orange and C is aqua (Chart 1 splits B into Spots in orange and Stations/Stores in yellow). Chart 2 uses the same blue (A) and aqua (C, smart bins). Chart 3 is two scatter plots (income vs public points, income vs restricted points) in dark grey (public) and mid grey (restricted). Chart 5 is a scorecard with A, B and C in their colours (darker shade = better on that row, grey = not published). Chart 6 uses blue for all public points and violet for without public-place bins. Chart 7 has three panels in A blue, B orange and C aqua. Chart 8 uses the A/B/C colours plus grey for restricted points (pale = raw, solid = held fixed). Chart 9 uses violet for the reliable tests and grey for the rest. **Chart 4 is different:** it plots three recovery rates (all MSW, domestic, and commercial and industrial waste), not A/B/C, so it highlights domestic waste in violet and greys the other two. Never reuse the A/B/C colours for other categories. Re-run the palette validator if you change any colours.
 - AI policy: the core intellectual work must be the students'. Help them understand and check the work; don't write their Abstract, Introduction or Conclusion prose.
 
-**Open items:** the students' own writing (§1, §2, §8), member responsibilities (§9 and poster), group number and names on the poster, putting the charts into the report in reading order (they are currently numbered 1, 6, 2, 3, 4, 9, 7, 8, 5 in the text), checking that chart text is legible when the poster is printed, and rehearsing the Q&A.
+**Open items:** the students' own writing (§1, §2, §8), member responsibilities (§9 and poster), group number and names on the poster, putting the charts into the report in reading order (they are currently numbered 1, 6, 2, 3, 4, 9, 7, 8, 5 in the text), checking that chart text is legible when the poster is printed, deciding whether the poster needs a reference line (the brief lists references as required content, but the full list was removed for space), and rehearsing the Q&A.
