@@ -4,7 +4,7 @@ A group project for **DSC1001/GE1356 Introduction to Data Science** (CityU), **O
 
 ## The problem (in kid words)
 
-Hong Kong throws away a lot of rubbish: more than 10,000 tonnes every day. Homes recycle only about **22%** of their rubbish, but the city wants to reach about **55%**. People **say** that having a recycling box close by is the main reason they recycle (a survey of 100 Hong Kong residents), but nobody has proved this in Hong Kong yet. In Canada, an experiment found that moving bins closer helped a lot, but a study in Shanghai found distance mattered only a little. So we asked: **does everyone in Hong Kong get a fair number of recycling boxes near them?**
+Hong Kong throws away a lot of rubbish: more than 10,000 tonnes every day. Homes recycle only about **22%** of their rubbish, but the city wants to reach about **55%**. People **say** that having a recycling box close by is the main reason they recycle (a survey of 100 Hong Kong residents), but nobody has proved this in Hong Kong yet. In Canada, an experiment found that moving bins closer helped a lot, but a study in Nanjing found distance mattered only a little. So we asked: **does everyone in Hong Kong get a fair number of recycling boxes near them?**
 
 ## Our questions
 

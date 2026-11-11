@@ -18,7 +18,7 @@ Hong Kong landfills over 10,000 tonnes of waste a day. Households recycle only 2
 **Did you prove more recycling points increase recycling?**
 No. We study access because residents say it matters.
 - Vancouver experiment: moving bins closer raised recycling 137–147%.
-- Shanghai: distance explained only 3% of participation.
+- Nanjing: distance explained only 3% of participation.
 - Our own test (RQ4) was inconclusive.
 
 ## 2. Data  [Name: ___]

@@ -35,7 +35,7 @@
 > - Facts:
 >   - Ma et al. (2023) surveyed 100 residents and report that convenience is the main motivation to recycle; the authors argue that residents tend not to recycle when no bin is nearby. 50% said bins were insufficient. This is what residents **say**, not measured behaviour, so write "residents report" or "the authors argue", not "people recycle more when…".
 >   - About 70% of Hong Kong's area has zero or low walking access to recycling (Zhao et al., 2025).
->   - Evidence that closer facilities **raise** recycling: in a Vancouver field experiment, moving bins closer raised recycling by 137–147% (DiGiacomo et al., 2018). But in Shanghai, distance explained only 3% of participation (Li et al., 2020), and in Hong Kong estates incentives mattered alongside facilities (Yau, 2012). So access likely helps, but is not the whole story.
+>   - Evidence that closer facilities **raise** recycling: in a Vancouver field experiment, moving bins closer raised recycling by 137–147% (DiGiacomo et al., 2018). But in Nanjing, distance explained only 3% of participation (Li et al., 2020), and in Hong Kong estates incentives mattered alongside facilities (Yau, 2012). So access likely helps, but is not the whole story.
 >   - The government aims to "provide every district with more adequate recycling outlets" (Environment Bureau, 2021, p. 8).
 >   - Yet by 2020 only 9 of 18 planned district Recycling Stations had been built (Audit Commission, 2020).
 > - Starter: "Hong Kong residents say convenience matters…"
@@ -70,14 +70,14 @@
 
 This project follows Option 2: we compare three existing recycling solutions (Section 4.1) using official open data and published reports, without collecting primary data. GREEN@COMMUNITY is the government's community recycling network of staffed **Recycling Stations** (large district centres), **Recycling Stores** (smaller shop-front sites) and **Recycling Spots** (street booths open at a fixed weekly time). MSW means municipal solid waste; C&I means commercial and industrial; PRH means public rental housing; LegCo is the Legislative Council, and an "LCQ" is a councillor's question with the government's written reply.
 
-Our core data comes from three official datasets:
+Our core data comes from four official datasets:
 
 - **D1: Environmental Protection Department (EPD) *Waste Less – Recyclable Collection Points* dataset** (EPD, 2025a), downloaded as a snapshot dated 18 September 2025. It lists 8,858 collection points, each with its district, point type, an access note (for example "For public use" or "For residents of the estate only"), the materials accepted and the opening hours.
-- **D2: Census and Statistics Department (C&SD) tables 110-02001 and 130-06806** (C&SD, 2026a, 2026b), giving mid-year land population, land area, population density and median monthly household income for each District Council district. We use 2025 figures, the year closest to the D1 snapshot, and 2024 as a check.
+- **D2: Census and Statistics Department (C&SD) tables 110-02001 and 130-06806** (C&SD, 2026a, 2026b), giving mid-year land population, land area, population density and median monthly household income for each District Council district. We use 2025 figures, the year closest to the D1 snapshot, and 2024 population as a check.
 - **D3: EPD *Monitoring of Solid Waste in Hong Kong* reports for 2022, 2023 and 2024**, which give district-level domestic waste disposal (Plate 2.6) and territory-wide recovery rates (Plate 3.2).
 - **D4: C&SD *2021 Population Census, statistics by District Council district*** (C&SD, 2022): the share of each district's residents living in **public rental housing**, **subsidised home ownership housing** and **private permanent housing**. We use these shares to explain our results (Section 5.5). As a cross-check, the Housing Authority's September 2026 public rental figures (Housing Authority, 2026) give almost the same public-rental shares (*r* = 0.98).
 
-We also extracted a statistic from each of **15** reports and papers and converted it to a common unit (Table 1). Of the seven academic papers, five study Hong Kong; two (from Vancouver and Shanghai) were added because no Hong Kong study measures whether nearer facilities raise recycling. The "Used in" column shows where each feeds the analysis: seven supply numbers used directly in our tables and charts (sources 1–4, 7, 10, 11), and the rest provide benchmarks we compare our results against.
+We also extracted a statistic from each of **15** reports and papers and converted it to a common unit (Table 1). Of the seven academic papers, five study Hong Kong; two (from Vancouver and Nanjing) were added because no Hong Kong study measures whether nearer facilities raise recycling. The "Used in" column shows where each feeds the analysis: seven supply numbers used directly in our tables and charts (sources 1–4, 7, 10, 11), and the rest provide benchmarks we compare our results against.
 
 Raw figures from each source were converted to common units where possible: tonnes per year, HK$ per tonne, kg per resident, or share of districts.
 
@@ -87,8 +87,8 @@ Raw figures from each source were converted to common units where possible: tonn
 |---|---|---|---|---|
 | 1–3 | Environmental Protection Department [EPD] (2023, 2024b, 2025b), *Waste Statistics for 2022, 2023, 2024* | Disposal 1.51 → 1.44 → 1.40 kg/person/day; recovery 32% → 33% → 34%; district domestic waste (Plate 2.6) | Disposal −7% in 2 years; recovery +1 point a year | 5.6 test 1; Chart 4 |
 | 4 | Environment Bureau (2021), *Waste Blueprint for Hong Kong 2035* | Target recovery rate about 55%; cut per-capita disposal by 40–45% | Gap to target: 21 points (55% vs 34% in 2024) | Chart 4 target line (p. 17); 5.4; 5.5 and Rec. 3 ("3-nil" buildings, p. 8) |
-| 5 | Audit Commission (2020), Report No. 74, Ch. 8 | Goal of one Recycling Station per district; 9 of 18 built by February 2020 | 50% of districts had a Station | Benchmark for 5.2 |
-| 6 | Zhao et al. (2025) | Walking access index on a 0.25 km² grid | About 70% of area with zero or low walking access; 50% of districts (9 of 18) low | Benchmark for Rec. 2; Limitations |
+| 5 | Audit Commission (2020), Report No. 74, Ch. 8 | Goal of one Community Green Station (now Recycling Station) per district; construction of 9 of 18 completed by February 2020, 8 of them operating | 50% of districts had a completed Station | Benchmark for 5.2 |
+| 6 | Zhao et al. (2025) | Walking access index on a 0.25 km² grid, projected for 2025 | About 70% of area with zero or low walking access; 50% of districts (9 of 18) low for paper, plastic and metal | Benchmark for Rec. 2; Limitations |
 | 7 | Chan et al. (2024) | Recyclables collected by GREEN@COMMUNITY in each district, Sep 2020–Aug 2021 | 0.80–2.47 kg per resident per year by district | 5.6 test 2 (district data) |
 | 8 | Ma et al. (2023) | Survey of 100 residents on recycling bins | 50% say bins are insufficient vs 26% sufficient | Introduction (why access matters) |
 | 9 | Guo et al. (2018) | 28 services across 1,620 neighbourhoods | Per-population measures make access look pro-rich; distance measures make it look pro-poor | Benchmark for 5.1–5.2 interpretation |
@@ -96,16 +96,16 @@ Raw figures from each source were converted to common units where possible: tonn
 | 11 | LegCo Panel paper CB(1)606/2024(01) (27 May 2024) | 605 food-waste smart bins in 171 public-housing estates; domestic food waste recycled rose from 1.4 to about 55 t/day; GREEN@COMMUNITY collected "over 26,000 t" in 2023 (20,300 t in 2022; LCQ2 later gives about 27,000 t for 2023) | At most about 20,000 t/year of domestic food waste, or ≤33 t per smart bin per year (upper bound: the 55 t/day covers all domestic channels) | Table 6 |
 | 12 | EPD (2024a), press release (16 April 2024), *EPD responds to concerns regarding food waste recycling services* | About 530 food-waste smart bins in about 150 of 213 public-housing estates (70%); target of 700+ bins in all estates by August 2024 | Combined with source 11: 530 → 605 smart bins in about six weeks (mid-April to late May 2024) | Background to solution C |
 | 13 | DiGiacomo et al. (2018) | Two randomised field experiments in high-density residences, Vancouver | Moving bins closer: composting +70% (+27 kg per unit per year) and +139%; recycling +147% (containers) and +137% (paper) | Introduction; Limitations |
-| 14 | Li et al. (2020) | Smart-card logs of food-waste deposits, 1,200 households, Shanghai | Distance explained only 3% of the variation in participation; no effect on frequency among participants | Introduction; Limitations |
+| 14 | Li et al. (2020) | Smart-card logs of food-waste deposits, 1,200 households, Nanjing | Distance explained only 3% of the variation in participation; no effect on frequency among participants | Introduction; Limitations |
 | 15 | Yau (2012) | Recyclables collected in 122 private high-rise estates, Hong Kong | Income, age and reward schemes were linked to more recycling; floor-based facilities alone unlikely to raise it | Introduction; 5.5; Limitations |
 
 ### 3.2 Data cleaning
 
 All raw files were kept unchanged in a `data/` folder. Everything we computed is stored separately in `output/`, so any member can rebuild our results from the original downloads. The cleaning steps were:
 
-1. **Removing unusable rows.** Two of the 8,858 points have no point type and no access note, so we excluded them, leaving 8,856 points. No coordinates were missing and every point fell inside one of the 18 districts.
+1. **Removing unusable rows.** Two of the 8,858 points have no point type and no access note, so we excluded them, leaving 8,856 points. No coordinates were missing. We used the EPD's own district label; a check against the official district boundaries put every point inside Hong Kong's 18 districts, but 189 points (2%) fall in a neighbouring district to the one labelled, mostly near district borders.
 2. **Duplicates.** 120 rows share 58 sets of coordinates, and 246 addresses appear more than once. We kept these rows because the EPD lists each bin or set of bins separately, for example a paper bin and a plastics bin at the same refuse collection point.
-3. **Matching district names.** The dataset's district codes were matched to the C&SD names. Only one needed changing ("Central_Western" to "Central and Western").
+3. **Matching district names.** The dataset's district codes were matched to the C&SD names by replacing underscores with spaces (for example "Sha_Tin" to "Sha Tin"). Only one needed a further change ("Central_Western" to "Central and Western").
 4. **Classifying access.** We used the EPD's own access note to separate **public-use** points (5,301) from **restricted** points (3,555), which are limited to estate residents, staff, members, students or tenants.
 5. **Classifying type.** We used the EPD's own point-type field rather than inventing categories (Table 2).
 
@@ -115,8 +115,8 @@ All raw files were kept unchanged in a `data/` folder. Everything we computed is
 |---|---|---|---|
 | Recycling Bins at Public Place | 3,588 | 3,588 | Bins in parks, playgrounds, beaches, refuse collection points, villages, government buildings and hiking roads |
 | Private Collection Points | 3,177 | 0 | Bins in housing estates, malls and companies, for their own users only |
-| Smart Bin | 1,443 | 1,073 | Mostly food-waste bins (1,288 accept food waste); 925 of the public ones are at housing-estate addresses. D1 (Sep 2025) has more than the 605 food-waste smart bins counted in May 2024 because the programme kept growing and D1 also includes other smart bins |
-| Recycling Spots (GREEN@COMMUNITY) | 398 | 398 | Fixed street booths, each with one session of about 3 hours a week |
+| Smart Bin | 1,443 | 1,073 | Mostly food-waste bins (1,288 accept food waste); about 900 of the public ones are at housing-estate addresses. D1 (Sep 2025) has more than the 605 food-waste smart bins counted in May 2024 because the programme kept growing and D1 also includes other smart bins |
+| Recycling Spots (GREEN@COMMUNITY) | 398 | 398 | Fixed street booths. Most open for one session of 2–3 hours on a set day each week |
 | Recycling Stations/Stores (GREEN@COMMUNITY) | 93 | 93 | Staffed facilities open most days |
 | Street Corner Recycling Shops | 106 | 106 | |
 | NGO Collection Points | 51 | 43 | |
@@ -301,7 +301,7 @@ These are associations among 18 districts. Housing shares are from 2021, against
 | Unevenness: highest ÷ lowest district | 6.0× | 5.3× | 6.4× | D1, D2 |
 | Equity (r with district median income; Table 4) | +0.55 (not reliable; mainly district size) | +0.49 (not reliable; mainly district size) | −0.67 (reliable; follows public rental housing) | D1, D2, D4 |
 | Range (materials accepted per point) | 2.6 | 8.4 | 1.2 (90% accept food waste) | D1 |
-| Opening hours | Not stated for 96% (open-air) | Stores 10–13 h a day in D1 (Sep 2025), all extended to 13 h by 2026 (LCQ2); each Spot one session of about 3 hours a week | 80% open 7 am – midnight | D1, LCQ2 |
+| Opening hours | Not stated for 96% (open-air) | Stores 10–13 h a day in D1 (Sep 2025), all extended to 13 h by 2026 (LCQ2); most Spots one session of 2–3 hours a week | 80% open 7 am – midnight | D1, LCQ2 |
 | Tonnes collected per year | Not published | 47,500 (2025) | ≤ about 20,000 food waste (mid-2024 rate) | LCQ2; LegCo paper 2024 |
 | Tonnes per point per year | Not published | ≤ about 97 (÷ 491 public points, Sep 2025) | ≤ 33 (÷ 605 bins, May 2024) | Derived (script) |
 | Kg per resident per year (all HK residents) | Not published | 6.3 | ≤ 2.7 | Derived (script) |
@@ -370,12 +370,12 @@ Sources: EPD collection points (September 2025); C&SD 2025 population and income
 
 ## 7. Limitations
 
-- **Counts ignore capacity and opening hours.** A Recycling Spot open about 3 hours a week counts the same as a Station open most days, and a single bin counts the same as a staffed Store.
+- **Counts ignore capacity and opening hours.** A Recycling Spot open 2–3 hours a week counts the same as a Station open most days, and a single bin counts the same as a staffed Store.
 - **Residents as the denominator.** Commercial districts (Wan Chai, Central and Western, Yau Tsim Mong) look over-served because their points also serve workers and visitors, who are not counted in the resident population.
-- **"Public" is the EPD's label (assumption).** We rely on the EPD's "For public use" label to decide what counts as public access, rather than inventing our own definition. 925 of the 1,073 public smart bins are at housing-estate addresses, and we did not verify on site whether non-residents can reach them. If some are inside residents-only areas, smart-bin coverage (Solution C) is overstated, and the −0.67 result shows where bins are placed rather than who can use them.
+- **"Public" is the EPD's label (assumption).** We rely on the EPD's "For public use" label to decide what counts as public access, rather than inventing our own definition. About 900 of the 1,073 public smart bins are at housing-estate addresses, and we did not verify on site whether non-residents can reach them. If some are inside residents-only areas, smart-bin coverage (Solution C) is overstated, and the −0.67 result shows where bins are placed rather than who can use them.
 - **One snapshot.** D1 shows a single day (18 September 2025). The network kept growing; there were about 600 Spots by July 2026 against 398 in our data.
 - **No distance measure.** We count points per district rather than walking distance to the nearest point. Guo et al. (2018) show that distance-based measures can reverse the conclusion, and Zhao et al. (2025) measure walking access directly.
-- **Access is not the same as use.** Evidence that nearby points make people recycle more is limited. Ma et al. (2023) report what residents **say** (convenience is their main reason to recycle). Chan et al. (2024) find that people who visited a Recycling Store recycle more, which is an association, not proof. Zhao et al. (2025) measure walking access, not behaviour. Outside Hong Kong, a randomised experiment in Vancouver found that moving bins closer raised recycling by 137–147% (DiGiacomo et al., 2018). However, in Shanghai distance explained only 3% of the variation in participation (Li et al., 2020), and in Hong Kong private estates floor-level facilities alone were unlikely to raise recycling without incentives (Yau, 2012). Our own test (RQ4) could not confirm the link either. We therefore study access because residents say it matters, not because it is proven to raise recycling.
+- **Access is not the same as use.** Evidence that nearby points make people recycle more is limited. Ma et al. (2023) report what residents **say** (convenience is their main reason to recycle). Chan et al. (2024) find that people who visited a Recycling Store recycle more, which is an association, not proof. Zhao et al. (2025) measure walking access, not behaviour. Outside Hong Kong, a randomised experiment in Vancouver found that moving bins closer raised recycling by 137–147% (DiGiacomo et al., 2018). However, in Nanjing distance explained only 3% of the variation in participation (Li et al., 2020), and in Hong Kong private estates floor-level facilities alone were unlikely to raise recycling without incentives (Yau, 2012). Our own test (RQ4) could not confirm the link either. We therefore study access because residents say it matters, not because it is proven to raise recycling.
 - **Small sample and confounding.** With 18 districts, one district (Wan Chai) moves several results noticeably. Income is linked to district size, population density and housing mix (public rental and private shares). Partial correlations (Table 5) help, but with 18 districts they cannot fully separate these effects.
 - **Uneven solution data.** Output and cost are published only for GREEN@COMMUNITY, so Table 6 cannot compare cost-effectiveness across all three solutions.
 - **Weak outcome data.** District waste figures are indicative and do not exactly match district boundaries. The only district recycling figures are from 2020–21, unofficial, and inconsistent with the paper's own total.
@@ -456,7 +456,7 @@ Guo, Y., Chang, S.-S., Chen, M., & Yip, P. S. F. (2018). Do poorer areas have po
 
 HKSAR Government. (2026, July 8). *LCQ2: Operation of GREEN@COMMUNITY* [Press release]. https://www.info.gov.hk/gia/general/202607/08/P2026070800357.htm
 
-Li, C. J., Zhang, Y., Nouvellet, P., Okoro, J. O., Wang, X., & Harder, M. K. (2020). Distance is a barrier to recycling – or is it? Surprises from a clean test. *Waste Management, 108*, 183–188. https://doi.org/10.1016/j.wasman.2020.04.022
+Li, C., Zhang, Y., Nouvellet, P., Okoro, J. O., Xiao, W., & Harder, M. K. (2020). Distance is a barrier to recycling – or is it? Surprises from a clean test. *Waste Management, 108*, 183–188. https://doi.org/10.1016/j.wasman.2020.04.022
 
 Ma, F. C., Wong, T. L., Chan, C. N., & Ran, L. (2023). Revising the effectiveness of municipal waste management in Hong Kong. *Frontiers in Environmental Science, 11*, Article 1178363. https://doi.org/10.3389/fenvs.2023.1178363
 
