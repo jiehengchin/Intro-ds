@@ -1,156 +1,150 @@
 # Q&A Prep: Who Gets a Recycling Point?
 
-2 minutes of Q&A means each answer is ~20–30 seconds. These are **drafts**: rewrite in your own words and assign a [Name] to each section. Every number matches `GE1356 Report Draft.md` and the output of `build_district_table.py`.
+The brief: the professor and TA grade "your ability to defend your data", and **inability to explain your group's reasoning is penalised**. So every member must say every idea below in kids' words, without notes. Each answer ~20–30 seconds (2 minutes of Q&A).
 
-Etiquette: rephrase the question first, route it to the best-placed member, don't interrupt, and say "We did not test that, but here is how we would approach it" rather than bluff.
-
----
-
-## 1. Why it matters, who benefits  [Name: ___]
-
-**Why does this problem matter?**
-Hong Kong landfills over 10,000 tonnes of waste a day. Households recycle only 22% against a ~55% target, and the rate rises only ~0.75 points a year. Households are the weakest link, and residents *report* convenience is their main reason to recycle.
-
-**Who benefits?**
-- Residents of the most populous districts (Yuen Long, Sha Tin, Tuen Mun), who have the thinnest GREEN@COMMUNITY coverage.
-- Planners: the government is reorganising GREEN@COMMUNITY district by district, and our per-type table (Table 7) is a ready baseline.
-
-**Did you prove more recycling points increase recycling?**
-No. We study access because residents say it matters.
-- Vancouver experiment: moving bins closer raised recycling 137–147%.
-- Nanjing: distance explained only 3% of participation.
-- Our own test (RQ4) was inconclusive.
-
-## 2. Data  [Name: ___]
-
-**Sources, and can you trust them?**
-- EPD collection-point dataset (8,858 points, snapshot 18 Sep 2025).
-- C&SD population and income tables; EPD waste statistics 2022–24; 2021 Census housing shares; statistics from 15 reports and papers.
-- Weak spot: the EPD itself says its district waste figures are "indicative reference only".
-
-**Missing data, duplicates, cleaning?**
-- Removed 2 rows with no point type and no access note → 8,856 points.
-- No coordinates missing; every point fell in one of 18 districts.
-- Kept duplicates (120 rows share 58 coordinates) because the EPD lists each bin separately, e.g. a paper bin and a plastics bin at one site.
-- Renamed one district ("Central_Western" → "Central and Western").
-
-**Sampling and bias?**
-It is the full EPD list, not a sample, covering all 18 districts. Risks: one-day snapshot (the network has since grown, ~600 Spots by 2026 vs 398 in our data). We used the EPD's own "public" and "type" fields so we could not pick definitions that favour a result.
-
-**How did you decide what counts as "public"?**
-The EPD note "For public use". This is an assumption: 925 of 1,073 public smart bins are at housing-estate addresses and we did not verify on site that non-residents can use them. If they can't, smart-bin coverage is overstated.
-
-## 3. Method choices  [Name: ___]
-
-**Why points per 10,000 residents?**
-Raw counts reward big districts. Dividing by population makes districts comparable. Weakness: commercial districts (Wan Chai, Central) look over-served because workers and visitors use the bins but aren't in the denominator.
-
-**Why correlation, not regression?**
-The brief asks for descriptive statistics, and the unit is only 18 districts, so we avoided fitting a model. Partial correlations (holding size or housing fixed) let us ask whether income still matters. Limit: with 18 points we cannot fully separate income, density and housing effects.
-
-**Why these three solutions? Why not private estate points?**
-A, B and C are the government's own programmes. Private estate points (3,177) are run by property managers, so we treat them as context.
-
-**Why district level, not walking distance?**
-District counts are what the data supports. Walking distance would be better (Zhao et al., 2025 do it); it is our main future work.
-
-**Ecological fallacy?**
-A district-level link between income and points does not mean richer *people* recycle more. We claim only district-level associations.
-
-**What do "coverage", "evenness" and "materials accepted" in Chart 5 mean?**
-- Coverage: public points ÷ Hong Kong population × 10,000 (B: 491 points → 0.65 per 10,000). Ignores opening hours and capacity.
-- Evenness: coefficient of variation = SD ÷ mean of the 18 district densities (B: 0.39 ÷ 0.77 = 0.50). Lower = districts are more similar. It says nothing about whether coverage is good, and treats districts equally whatever their size. A, B, C are all 0.43–0.52, so all are unevenly spread to a similar degree.
-- Materials accepted: number of material types the EPD lists per point, averaged (A 2.6, B 8.4, C 1.2). It measures range, not volume.
-
-**Why does C have the lowest CV but the highest highest-÷-lowest ratio?**
-The CV uses all 18 districts; the ratio uses only the two extremes. They answer different questions, so we report both.
-
-## 4. Validation  [Name: ___]  (expect the hardest questions here)
-
-**How did you validate? There's no train/test.**
-We built no predictive model, so train/test doesn't apply. We stress-tested every correlation six ways: Spearman, leave-one-out, excluding Wan Chai, 2024 population, an alternative income measure, and a permutation test with a Bonferroni correction.
-
-**What is your baseline?**
-No predictive baseline. We compare against published benchmarks (e.g. Guo et al. 2018) and territory-wide recovery rates.
-
-**What did the checks show?**
-The direction of every result held. Only 3 of 20 tests pass the correction (p < 0.0025):
-- restricted points vs income (+0.79)
-- private-estate points vs income (+0.77)
-- smart bins vs income (−0.67; p = 0.0024, just passes)
-
-Others, including "pro-rich" public points, are fragile: all-public drops from +0.49 to +0.29 without Wan Chai.
-
-**Why Bonferroni? Isn't it too strict?**
-We ran 20 tests, so some would look significant by chance. It is conservative, so we call the rest "moderate and fragile patterns", not disproven.
-
-**Could population density explain the differences instead of size?**
-Partly, for public-place bins only. Density keeps its own link with public-place bins (r = −0.53; −0.57 with size held fixed), because dense urban districts have little countryside, so density is a proxy for land area (bin counts follow land area, +0.74). For GREEN@COMMUNITY, Spots, smart bins and restricted points, density adds nothing once size is held fixed (+0.01 to +0.13). Size is the stronger explanation almost everywhere (r with log population −0.8 to −0.9 for A, B and Spots). Density and size are only weakly related (r = +0.24), and with 18 districts we can't fully separate them (raw density correlations are in Table 3; the partial ones are in Appendix B, explanations.csv). If asked whether we controlled for density: holding it fixed barely changes the income link (e.g. GREEN@COMMUNITY +0.49 → +0.46), while holding size fixed nearly removes it (→ +0.04), so density does not explain the income pattern away. This check is in our working but not in the report.
-
-**Are your "why" explanations proven?**
-- Smart bins follow public rental housing: r = +0.96, income link falls to +0.01 once held fixed. Strong.
-- Size explains GREEN@COMMUNITY coverage: r = +0.92 with 1/population, income link falls to +0.04. Strong.
-- Our reason why restricted points follow income (older private buildings without management) is a **likely explanation we did not test**.
-
-## 5. Surprises and honesty  [Name: ___]
-
-**You expected more points → less waste. What happened?**
-The sign was opposite (r = +0.35 to +0.48). We don't trust it:
-- the EPD calls its district figures indicative only
-- Wan Chai's domestic waste rose 37% (188 → 258 t/day) while population barely changed
-- the "Outlying Islands" row includes Ma Wan, so it doesn't match the Islands district
-- districts with many workers and visitors produce more waste *and* have more bins
-
-We reported it anyway (Section 4.3).
-
-**Why not compare cost-effectiveness of all three?**
-Only GREEN@COMMUNITY publishes output and cost (~HK$10,100 per tonne). We found none for public bins or smart bins, so we say so rather than invent one.
-
-**Is "97 tonnes per point" reliable?**
-No, it's an upper bound: the 47,500 t covers the whole network (including Stores in public housing estates and smart recycling devices), not just the 491 public points. It shows scale, not efficiency.
-
-**Chan et al. (2024) numbers look odd.**
-Correct: compiled from Facebook posts, covers 2020–21 (~130 facilities vs ~490 now), and the paper's table totals 11.8 million kg while its text says ~18 million. We used it only as a weak check (r = +0.47; +0.34 without Islands).
-
-## 6. Limitations, reproducibility, ethics  [Name: ___]
-
-**Biggest limitations?**
-- Counts ignore capacity and opening hours (a 3-hours-a-week Spot counts like a Station).
-- One-day snapshot.
-- n = 18, and Wan Chai is influential.
-- No distance measure.
-- No reliable outcome data.
-
-**Reproducible?**
-Yes. Raw files are untouched in `data/`; `build_district_table.py` rebuilds every table (stdlib only, fixed seed 1) and `make_charts.py` redraws the charts. Descriptive results also work in Excel (COUNTIFS, CORREL).
-
-**Ethics and privacy?**
-All data is aggregated, government-published, with no personal information. We avoid calling districts "good" or "bad": low density may reflect where the government placed facilities, not any failing by residents.
-
-## 7. Recommendations and teamwork  [Name: ___]
-
-**Recommendations?**
-1. Measure access by type, not total count.
-2. Scale GREEN@COMMUNITY to population (~59 more Spots to lift Yuen Long, Sha Tin, Tuen Mun to the median; an *illustrative* target).
-3. Put Stores near older private buildings without management (the Blueprint already says this).
-4. Publish output and cost for every solution.
-
-None is tested; the effect on recycling volumes is unknown.
-
-**What did each member contribute?**
-[Fill in all 6 names and roles. Report Section 9 is still blank; make the two match.]
+Numbers match `GE1356 Report Draft.md` and `build_district_table.py`. Rewrite in your own words and put a [Name] on each section. Etiquette: rephrase the question, route it to the best-placed member, never bluff ("We did not test that, but here is how we would").
 
 ---
 
-## "We did not test that, but…" lines
+## Memorise these four (everyone)
 
-- 3-nil / unmanaged buildings: we'd use building-level data to count them.
-- Access vs use: we'd need official district recycling tonnage.
-- Smart-bin access: we'd check on site whether non-residents can use them.
-- Walking distance: we'd replicate Zhao et al.'s method.
+**Story (30 s):** "Public points vary 3.2-fold between districts, but most of that is bins in parks and offices, not near homes. The three solutions follow different drivers: public-place bins follow land area, GREEN@COMMUNITY follows district size, smart bins follow public rental housing. So most income patterns are really size and housing, and only 3 of 20 tests are strong enough to trust. No solution wins on every measure, so we recommend measuring access by type."
 
-## Everyone should be able to explain
+**Data (30 s):** "We took the government's full list of recycling points (8,858 rows, 18 Sep 2025), dropped 2 rows with no type (8,856), and used the EPD's own note to keep the 5,301 public points and set aside the 3,555 restricted ones. We counted public points per district and type, divided by 2025 population per 10,000, and joined income and housing share. One script rebuilds every table."
 
-- Table 5 (partial correlations) in plain words: "the link with income that remains after holding size/housing fixed".
-- Why Wan Chai and Islands only *look* well served.
-- Why RQ4 is unanswered.
+**Method (30 s):** "For each district we asked: how different are they, do richer or more crowded districts have more of each type, and does that survive when we hold size or public housing fixed. With 18 districts and 20 tests, we tried to break every result six ways and only trust what survives."
+
+**Takeaway:** "Hong Kong doesn't just need more recycling points; it needs to know who each type of point actually reaches, because the answer changes with what you count."
+
+3-minute talk split (6 × ~30 s): problem → data and method → 3.2× gap and three solutions (Charts 6, 5) → why it's size and housing (Chart 7) → how far to trust it → recommendations.
+
+---
+
+## 0. Explain it like I'm 10  (everyone)
+
+Say the kid version first; give the proper term only if pushed.
+
+| Idea | Kid version | Proper |
+|---|---|---|
+| **Per 10,000 residents** | "A big town needs more bins than a small one, so we ask: bins for every 10,000 people?" | Population-standardised density |
+| **Correlation (r)** | "From −1 to +1: do two things move together? +1 up together, −1 opposite, 0 no pattern." | Pearson's r |
+| **Spearman** | "Same idea but using rankings (1st, 2nd…), so one odd district can't fool it." Pearson is our main number; Spearman is a double-check. | Rank correlation |
+| **Held fixed (partial correlation)** | "Richer districts also have fewer people and less public housing. If two districts were the same size, would richer still mean more bins? Like runners starting at the same line." | Partial correlation |
+| **Leave-one-out** | "Remove one district at a time. Does one odd kid change the class average?" | Influence check |
+| **Evenness (CV)** | "How different districts are from each other. Low = similar; high = some have much more." | SD ÷ mean |
+| **Ecological fallacy** | "Richer *districts* having more bins doesn't mean richer *people* recycle more." | Group ≠ individual |
+| **Confounder** | "Something hiding behind the pattern, like size or public housing." | Confounding variable |
+| **Snapshot** | "A photo of one day (18 Sep 2025); bins have been added since." | Cross-sectional |
+| **Public / restricted** | "Public: anyone can use it. Restricted: only that estate's residents or that company's staff." | EPD access note |
+| **Spot / Store / Station** | "Spot: booth open ~3 hours a week. Store: small shop. Station: big staffed centre." | GREEN@COMMUNITY tiers |
+| **Smart bin** | "Bin in public housing estates, 90% food waste." | Public-use Smart Bin |
+| **Why RQ4 is unanswered** | "We'd need recycling amounts per district; the government doesn't publish them." | Outcome data missing |
+
+### Permutation test + Bonferroni (worked example: smart bins vs income, r = −0.67)
+
+**Question:** could 18 random districts show r = −0.67 by luck?
+
+1. Put each district's smart-bin number on one card, its income on another.
+2. **Shuffle** the income cards so incomes are random. Bin numbers stay fixed. Any link is now pure luck.
+3. Compute r for the shuffled pairing and write it down.
+4. Repeat **10,000 times**: 10,000 luck-only r values.
+5. **Count** how many are as strong as ours (|r| ≥ 0.67, either sign): about 24.
+6. **p** = (count + 1) ÷ 10,001 ≈ 0.0024. "Only ~24 in 10,000 shuffles looked this strong by luck."
+
+**Bonferroni:** we ran 20 pairings (10 bin measures × income and crowdedness). Play 20 times and a 1-in-20 fluke is expected, so the pass mark is made 20× harder: **0.05 ÷ 20 = 0.0025**. Smart bins (0.0024) pass, just. Public bins vs income (0.018) pass a single test but fail here.
+
+*Why not the textbook p-value?* It assumes bell-curve data; with 18 districts shuffling needs no assumption. *What it does not say:* nothing about cause, and a fail means "not strong enough with 18 districts", not "no effect".
+
+---
+
+## 1. Why it matters  [Name: ___]
+
+- **Why?** Over 10,000 t of waste landfilled a day; households recycle 22% vs a ~55% target, rising ~0.75 points a year; residents *report* convenience is their main reason to recycle.
+- **Who benefits?** Residents of the biggest districts (Yuen Long, Sha Tin, Tuen Mun) with the thinnest GREEN@COMMUNITY coverage; planners, since the government will run GREEN@COMMUNITY district by district (Table 7 is a ready baseline).
+- **Did you prove more points → more recycling?** No. We study access because residents say it matters. Vancouver: closer bins raised recycling 137–147%; Nanjing: distance explained 3%; our own test (RQ4) was inconclusive.
+
+---
+
+## 2. Defending the data  [Name: ___]
+
+| Challenge | Kid version | Full answer |
+|---|---|---|
+| **No data collected: OK?** | "We used the government's full list, not a few answers." | Option 2 allows official datasets plus ≥ 8 reports. Full register, so no sampling or non-response bias. Weakness: not checked on site. |
+| **Trust the source?** | "The Environmental Protection Department keeps the list." | EPD "Waste Less" on DATA.GOV.HK; population and income from C&SD; all citable and re-downloadable. Limits: addresses not audited; EPD calls district *waste* figures "indicative only". |
+| **What did you delete?** | "2 unlabelled rows, plus private bins the public can't use." | 2 rows with no type (8,858 → 8,856). Restricted points (3,177 private + 370 restricted smart bins + 8 NGO = 3,555) are excluded from the three solutions, kept as context for "restricted vs income". |
+| **Why drop restricted?** | "A bin inside someone's estate doesn't help the neighbour." | Run by property managers, not government; public can't use them (EPD note). We rely on that label, not an on-site check. |
+| **Duplicates?** | "Two bins at one place are two bins." | 120 rows share 58 coordinates; 246 addresses repeat. EPD lists each bin separately (e.g. paper and plastics). Kept all. *Not tested:* merging them; we'd dedupe by address + type and rerun. |
+| **District labels right?** | "We used the EPD's label and checked it on a map." | One name mapped ("Central_Western"). A boundary check put every point in Hong Kong, but 189 (2%) sit in a neighbouring district, mostly near borders. Not re-run. |
+| **Out of date?** | "A photo of one day; bins were added later." | 18 Sep 2025. LCQ2 (Jul 2026): ~600 Spots vs 398 in our data. We say so and don't mix years silently. |
+| **Smart bins don't match the news (605 / 140)** | "Different kinds, different dates." | D1: 1,443 smart-bin rows (1,073 public; 962 accept food waste). 605 = food-waste bins in public estates, May 2024; 140+ = GREEN@COMMUNITY smart recycling bin sets. |
+| **Which years?** | "Closest to our bin list." | 2025 population and income (2024 as a check); housing shares from 2021 Census, cross-checked with HA 2026 (r = 0.98). |
+| **What is "income"?** | "The middle monthly income of a household." | C&SD median monthly household income of *all* households, incl. retired, so retiree-heavy districts look poorer; economically-active version gives a similar result. |
+| **15 sources → one comparison?** | "Same units." | 55 t/day × 365 ≈ 20,000 t; HK$480M ÷ 47,500 t ≈ HK$10,100/t; tonnes → kg per resident. Where no figure exists, blank, not estimated. |
+| **Can I rerun it?** | "One button, same tables." | Raw files untouched in `data/`; `build_district_table.py` checks totals and uses fixed seed 1. |
+| **Why 15 sources, not 8?** | | The brief needs ≥ 8; each of our 15 has one extracted, standardised figure. Seven feed our tables; the rest are benchmarks. |
+
+**Admit before they find it:** we trust the EPD "public" label (about 900 of 1,073 public smart bins are at estate addresses; access not verified on site); duplicates and border labels were reported but not stress-tested; housing is 2021 while income and population are 2025; a 3-hour Spot counts like a 7-day Station.
+
+---
+
+## 3. Defending the method  [Name: ___]
+
+| Challenge | Kid version | Full answer |
+|---|---|---|
+| **Why per 10,000?** | "Fair between big and small districts." | Weakness: commercial districts (Wan Chai, Central) look over-served because workers and visitors aren't in the denominator. |
+| **Why correlation, not regression/ML?** | "We wanted to see what moves together, not predict; 18 districts would make a fancy model guess." | Brief asks for descriptive statistics; 18 observations and correlated predictors make coefficients unstable. Partial correlations answer "does income still matter". |
+| **Why these three solutions? Why not private estate points?** | | A, B, C are the government's programmes; private points are run by property managers, so context. |
+| **Why district, not walking distance?** | | District counts are what the data supports; walking distance (Zhao et al. 2025) is future work. |
+| **What does r = +0.49 mean?** | "Halfway between no link and perfect, with many exceptions." | r² = 0.24: a quarter of the variation, descriptively, not causally. |
+| **What counts as reliable?** | "Holds when shaken, and not luck." | Sign stable in all checks **and** permutation p < 0.0025: only restricted (+0.79), private-estate (+0.77), smart bins (−0.67). The rest are "moderate and fragile", not disproven. |
+| **Why 20 tests?** | "We checked 20 things." | 10 density measures (all public, restricted, private-estate, 6 point types, GREEN@COMMUNITY) × income and population density. 10,000 shuffles resolve p down to ~0.0001. |
+| **Why income and density?** | "Do richer or more crowded places get more?" | The two easiest-to-cite district traits; housing and size added to explain "why". |
+| **Median, not average income?** | "A few rich households drag the average up." | Median resists extremes. |
+| **What does "size fixed" do?** | "Compare districts as if same population." | Partial correlation: (r_xy − r_xz·r_yz) ÷ √((1−r_xz²)(1−r_yz²)), for log population and for public-rental and private shares. |
+| **Why public-rental share for smart bins?** | "Smart bins went into public housing." | +0.96 with public-rental share; income link −0.67 → +0.01 when fixed. |
+| **Six robustness checks?** | "Six ways to break the answer." | Spearman; leave-one-out; excluding Wan Chai; 2024 population; alternative income; permutation + Bonferroni. |
+| **The 59 Spots?** | "Lift the three thinnest big districts to the middle." | Median GREEN@COMMUNITY density 0.70 per 10k. Extra = (0.70 − density) × pop ÷ 10,000: Yuen Long +25, Sha Tin +22, Tuen Mun +12. Illustrative, not proven need. |
+| **Chart 5 measures?** | | Coverage = public points ÷ HK population × 10,000 (B: 491 → 0.65). Evenness = SD ÷ mean of the 18 densities (A, B, C = 0.43–0.52). Materials = types accepted per point (A 2.6, B 8.4, C 1.2). Output and cost exist only for B, so we claim no winner on effectiveness. CV uses all districts, the best÷worst ratio only two, so C can be lowest on one and highest on the other. |
+| **Density instead of size?** | | Partly, for public-place bins only (r = −0.53; density proxies land area). For GREEN@COMMUNITY, Spots, smart bins and restricted points it adds nothing once size is fixed. Holding density fixed barely moves the GREEN@COMMUNITY income link (+0.49 → +0.46); holding size fixed nearly removes it (+0.04). In `explanations.csv`, not in the report. |
+| **How did you avoid bias?** | | Full official list, not a sample; EPD's own definitions of "public" and type; per-resident counts; we reported results against our guess (RQ4). Remaining: commercial districts, one-day snapshot. |
+| **Did you use AI?** | | Agree one honest group sentence, e.g. "AI helped with grammar and scripting; question, method and interpretation are ours; every number rebuilds from `build_district_table.py`." |
+| **No train/test? Baseline?** | "No practice test; instead we tried to break our answers." | No predictive model, so none applies. We compare against published benchmarks (Guo et al. 2018) and territory-wide recovery rates. |
+
+**Never say:** "richer people recycle more" (say richer *districts*); "income causes…" (say "linked with"); "p = 0.039 is significant" (not after correcting for 20 tests); "smart bins are for poor people" (say "follow public rental housing").
+
+---
+
+## 4. Defending the findings  [Name: ___]
+
+Rule: finding → number → what it does *not* show.
+
+| Finding | Number | Likely attack → reply |
+|---|---|---|
+| **Gap between districts** | 4.8 (Wong Tai Sin) to 15.2 (Wan Chai) per 10k, 3.2×; mean 7.9, median 7.3 | "Is it real?" Real in counts, but 68% of public points are public-place bins; Wan Chai is 81% bins (12.3 of 15.2), many in offices and hiking roads. Says little about home access. |
+| **Ranking changes without park/office bins** | Range 1.5 (Sai Kung) to 3.6 (Islands); Kwai Tsing, Kwun Tong, Wong Tai Sin move bottom → top half | "Cherry-picking?" We show both. Park bins are real but don't serve people at home; which matters depends on the question (Guo et al. 2018). |
+| **No solution wins everywhere** | A 4.79/10k, 6.0×, +0.55, 2.6 materials; B 0.65, 5.3×, +0.49, 8.4, 47,500 t, ~HK$10,100/t; C 1.43, 6.4×, −0.67, 1.2 | "Which is best?" Can't say on effectiveness (output and cost only for B); we compare reach and fairness. |
+| **Public bins follow income** | +0.55 but p = 0.018 (fails); +0.38 without Wan Chai; +0.23 size fixed | "Richer get more bins?" Not reliably: moderate, fragile, pulled by Wan Chai and Central and Western. |
+| **Smart bins follow public rental housing** | +0.96; income −0.67 → +0.01 fixed; p ≈ 0.0001 | "Then why −0.67 with income?" Poorer districts have more public housing; fix housing and income adds nothing. Strong. |
+| **GREEN@COMMUNITY thins out in big districts** | +0.92 with 1 ÷ population; 17–39 points per district; income +0.49 → +0.04 size fixed | "Policy or accident?" Can't tell; consistent with an equal-number-per-district pattern, not tested. Allocation, not neglect. |
+| **Restricted points follow income** | +0.79 (p = 0.0005); +0.69 size fixed; +0.60 private share fixed | "Why?" Likely managed private estates run their own bins, old tenements don't (Yau Tsim Mong: 89% private, 4.1 per 10k; Central and Western: 95%, 21.3). **Untested; say so.** |
+| **Only 3 of 20 reliable** | The 3 above; all-public +0.49, p = 0.039, +0.29 without Wan Chai | "Bonferroni too harsh?" It is conservative, so the rest are "fragile", not zero. |
+| **RQ4 inconclusive** | Public density vs domestic waste per person r = +0.35 / +0.40 / +0.48 (2022–24); recyclables vs facilities +0.47 (+0.34 without Islands) | "Opposite sign?" Reported anyway. EPD figures "indicative only"; Wan Chai +37% (188 → 258 t/day) with flat population; "Outlying Islands" row includes Ma Wan; workers create waste and bins; the recycling series is Facebook-derived, 2020–21, and its table (11.8 M kg) ≠ its text (~18 M kg). |
+| **Rec 2: ~59 Spots** | Yuen Long 0.32, Sha Tin 0.38, Tuen Mun 0.47 vs median 0.70 | "Why not Wong Tai Sin (lowest overall)?" Its low total comes from few public-place bins; it has 8 Stations/Stores. "Will it raise recycling?" Unknown; illustrative. |
+| **Rec 3: Stores in old private buildings** | Yau Tsim Mong: 89% private, 2 Stations/Stores, smart 0.4 per 10k | "Counted those buildings?" No ("3-nil" counts not in our data); Blueprint p. 8 already says Stores go there. |
+| **"97 t per point" (B)** | 47,500 t ÷ 491 | Upper bound: the 47,500 t covers the whole network, not just 491 public points. Shows scale, not efficiency. |
+
+**If the professor says…**
+- *"Results are weak (3 of 20)."* → "That is a finding: most income stories dissolve once size and housing are accounted for."
+- *"Correlation isn't causation."* → "Agreed; every finding is an association between 18 districts."
+- *"n = 18, how do you generalise?"* → "We don't; the 18 are the whole population, and permutation tests suit small n."
+- *"What surprised you?"* → "More points did not mean less waste, and housing and size explained most of the income pattern."
+- *"More time?"* → "Walking distance (Zhao et al.), district recycling tonnage, on-site check of smart-bin access, counting 'no-management' buildings."
+
+---
+
+## 5. Limitations, ethics, teamwork  [Name: ___]
+
+- **Biggest limitations:** counts ignore capacity and hours; one-day snapshot; n = 18 with Wan Chai influential; no distance measure; no reliable outcome data.
+- **Ethics:** aggregated government data, no personal information; we don't call districts "good" or "bad" (low density may reflect where facilities were placed, not residents' failings).
+- **Recommendations (none tested):** (1) measure access by type; (2) scale GREEN@COMMUNITY to population (~59 Spots, illustrative); (3) Stores near older unmanaged private buildings; (4) publish output and cost for every solution.
+- **Who did what?** [Fill all 6 names and roles; make Report Section 9 and the poster match.]
